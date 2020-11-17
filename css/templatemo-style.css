@@ -87,7 +87,21 @@ nav {
   z-index: 300;
   box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.5);
 }
+nav .logo a {
+  display: inline-block;
+  line-height: 1;
+  margin-top: 0.5em;
+}
 
+nav .logo {
+  max-width: calc(100% - 55px - 70px);
+}
+
+@media only screen and (min-width: 464px) {
+  nav .logo a {
+      margin-top: 0.9em;
+  }
+}
 .menu-icon {
   background: transparent;
   border: 1px solid #fff;
