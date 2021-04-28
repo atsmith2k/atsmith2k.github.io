@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ashton T. Smith</title>
+    <!-- Normalize CSS -->
+    <link rel="stylesheet" href="css/normalize.css">
+
+    <!-- Animate CSS -->
+    <!-- Add either the CDN link (recommended) or path to file in your project folder -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <video autoplay="" loop="" muted id="backgroundVideo">
+            <source src="img/background.mp4" type="video/mp4" />
+        </video>
+        <div class="content">
+            <div class="nav-bar">
+                <div class="navRow1">
+                    <a id="nav1" class="navButton activeBtn" onclick="getHome(this.id)">Home</a>
+                    <a id="nav2" class="navButton" onclick="getAbout(this.id)">About Me</a>
+                </div>
+                <div class="navRow2">
+                    <a id="nav3" class="navButton" onclick="getProjects(this.id)">Projects</a>
+                    <a id="nav4" class="navButton" onclick="getResume(this.id)">Resume</a>
+                </div>
+            </div>
+
+            <div class="stuffInPage">
+                <h1 class="animate__animated animate__backInDown">Ashton Smith</h1>
+                <hr />
+                <p class="animate__animated animate__backInDown">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+                    aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        const content = document.querySelector(".stuffInPage");
+        const sleep = (milliseconds) => {
+            return new Promise(resolve => setTimeout(resolve, milliseconds))
+        }
+
+        function resetPage() {
+            content.classList.forEach(c => content.classList.remove(c));
+            const navBtns = document.querySelectorAll(".navButton");
+            navBtns.forEach(btn => btn.classList.remove("activeBtn"));
+        }
+
+        async function getHome(clicked_id) {
+            content.classList.add('animate__animated');
+            content.classList.add('animate__rollOut');
+            await sleep(500);
+            resetPage();
+            resetPage();
+            document.getElementById(clicked_id).classList.add("activeBtn");
+            content.classList.add('stuffInPage');
+            content.innerHTML = '<h1 class="animate__animated animate__backInDown">Ashton Smith</h1><p class="animate__animated animate__backInDown">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>';
+        }
+
+        async function getAbout(clicked_id) {
+            content.classList.add('animate__animated');
+            content.classList.add('animate__rollOut');
+            await sleep(500);
+            resetPage();
+            resetPage();
+            document.getElementById(clicked_id).classList.add("activeBtn");
+            content.classList.add('aboutme');
+            const profileImage = '<div class="firstRow animate__animated animate__backInLeft"><figure><img src="img/me-cr.jpg" alt="Ashton Smith"><figcaption>New Orleans, LA. 02-26-2021</figcaption></figure>';
+            const firstRowText1 = '<div class="firstRowInline"><h1>I am Ashton Smith</h1><p>I am currently a senior at Indiana University. I am on track to graduate May 2021. I am graduating with a major in Informatics with a minor in Computer Science';
+            const firstRowText2 = 'I have been an employee of Liberty Mutual Insurance Group for just about 2 years now as a Software Engineering Intern. Upon graduation I will be transitioning into full time employment with Liberty Mutual.'
+            const firstRowText3 = ' Aside from my current employment, I spend a lot of my free time picking up freelance software development gigs to hone my skills and create another income stream.</p>';
+            const endFirstRow = '</div></div>';
+            const secondRow = '<div class="secondRow animate__animated animate__backInRight"><p>Outside of my professional life, my hobbies include skiing, computer building/ gaming, and hanging out with my pup Franklin! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>';
+            const secondRowEnd = '<figure><img src="img/frankie.png" alt="Frankie Smith"><figcaption>Frankie the Frenchie</figcaption></figure></div>';
+            content.innerHTML = profileImage + firstRowText1 + firstRowText2 + firstRowText3 + endFirstRow + secondRow + secondRowEnd;
+        }
+
+        async function getProjects(clicked_id) {
+            content.classList.add('animate__animated');
+            content.classList.add('animate__rollOut');
+            await sleep(500);
+            resetPage();
+            resetPage();
+            document.getElementById(clicked_id).classList.add("activeBtn");
+            content.classList.add('projects');
+            const gnarLogFig = '<div class="firstProjectRow animate__animated animate__backInDown"><figure class=""><img src="img/gnar-log.jpg" alt="Project 1: Gnar Log"><figcaption>Project 1: Gnar Log</figcaption></figure>';
+            const ww1Fig = '<figure class=""><a href="https://atsmith2k.github.io/" target="_blank"><img src="img/ww1-500x500.png" alt="Project 2: Digital Exhibit"></a><figcaption>Project 2: Digital Exhibit</figcaption></figure>'
+            const p3fig = '<figure class=""><img src="img/place.jpg" alt="Project 3"><figcaption>Project 3</figcaption></figure></div>'
+            const gnarLogFig2 = '<div class="secondProjectRow animate__animated animate__backInUp"><figure class=""><img src="img/place.jpg" alt="Project 4"><figcaption>Project 4</figcaption></figure>';
+            const ww1Fig2 = '<figure class=""><a href="" target="_blank"><img src="img/place.jpg" alt="Project 5"></a><figcaption>Project 5</figcaption></figure>'
+            const p3fig2 = '<figure class=""><img src="img/place.jpg" alt="Project 6"><figcaption>Project 6</figcaption></figure></div>'
+            content.innerHTML = gnarLogFig + ww1Fig + p3fig + gnarLogFig2 + ww1Fig2 + p3fig2;
+        }
+
+        async function getResume(clicked_id) {
+            content.classList.add('animate__animated');
+            content.classList.add('animate__rollOut');
+            await sleep(500);
+            resetPage();
+            resetPage();
+            document.getElementById(clicked_id).classList.add("activeBtn");
+            content.classList.add('resume');
+            content.innerHTML = '<iframe class="animate__animated animate__backInRight" src="img/resume.pdf" style="width:800px; height:800px;" frameborder="0"></iframe>';
+        }
+    </script>
+</body>
+
+</html>
