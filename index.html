@@ -20,7 +20,7 @@
 <body>
     <div class="container">
         <video autoplay="" loop="" muted id="backgroundVideo">
-            <source src="img/background.mp4" type="video/mp4" />
+            <source src="img/mobile-bg.mp4" type="video/mp4" />
         </video>
         <div class="content">
             <div class="nav-bar">
@@ -44,6 +44,15 @@
     </div>
     <script>
         const content = document.querySelector(".stuffInPage");
+        console.log(window.innerWidth);
+        if (window.innerWidth < 767) {
+            var video = document.getElementsByTagName('video')[0];
+            // document.getElementById("backgroundVideo").innerHTML = '<source src="img/mobile-bg.mp4" type="video/mp4" />';
+            // var sources = video.getElementsByTagName('source');
+            video.currentSrc = 'img/mobile-bg.mp4';
+            // sources[0] = 'img/mobile-bg.mp4';
+            video.load();
+        }
         const sleep = (milliseconds) => {
             return new Promise(resolve => setTimeout(resolve, milliseconds))
         }
@@ -56,7 +65,7 @@
 
         async function getHome(clicked_id) {
             content.classList.add('animate__animated');
-            content.classList.add('animate__rollOut');
+            content.classList.add('animate__backOutUp');
             await sleep(500);
             resetPage();
             resetPage();
@@ -67,7 +76,7 @@
 
         async function getAbout(clicked_id) {
             content.classList.add('animate__animated');
-            content.classList.add('animate__rollOut');
+            content.classList.add('animate__backOutUp');
             await sleep(500);
             resetPage();
             resetPage();
@@ -85,7 +94,7 @@
 
         async function getProjects(clicked_id) {
             content.classList.add('animate__animated');
-            content.classList.add('animate__rollOut');
+            content.classList.add('animate__backOutUp');
             await sleep(500);
             resetPage();
             resetPage();
@@ -102,7 +111,7 @@
 
         async function getResume(clicked_id) {
             content.classList.add('animate__animated');
-            content.classList.add('animate__rollOut');
+            content.classList.add('animate__backOutUp');
             await sleep(500);
             resetPage();
             resetPage();
