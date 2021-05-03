@@ -20,7 +20,7 @@
 <body>
     <div class="container">
         <video autoplay="" loop="" muted id="backgroundVideo">
-            <source src="img/mobile-bg.mp4" type="video/mp4" />
+            <source src="img/background.mp4" type="video/mp4" />
         </video>
         <div class="content">
             <div class="nav-bar">
@@ -37,22 +37,13 @@
             <div class="stuffInPage">
                 <h1 class="animate__animated animate__backInDown">Ashton Smith</h1>
                 <hr />
-                <p class="animate__animated animate__backInDown">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-                    aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p class="animate__animated animate__backInDown">Welcome to my corner of the Internet</p>
             </div>
         </div>
     </div>
     <script>
         const content = document.querySelector(".stuffInPage");
         console.log(window.innerWidth);
-        if (window.innerWidth < 767) {
-            var video = document.getElementsByTagName('video')[0];
-            // document.getElementById("backgroundVideo").innerHTML = '<source src="img/mobile-bg.mp4" type="video/mp4" />';
-            // var sources = video.getElementsByTagName('source');
-            video.currentSrc = 'img/mobile-bg.mp4';
-            // sources[0] = 'img/mobile-bg.mp4';
-            video.load();
-        }
         const sleep = (milliseconds) => {
             return new Promise(resolve => setTimeout(resolve, milliseconds))
         }
@@ -71,7 +62,7 @@
             resetPage();
             document.getElementById(clicked_id).classList.add("activeBtn");
             content.classList.add('stuffInPage');
-            content.innerHTML = '<h1 class="animate__animated animate__backInDown">Ashton Smith</h1><p class="animate__animated animate__backInDown">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>';
+            content.innerHTML = '<h1 class="animate__animated animate__backInDown">Ashton Smith</h1><hr /><p class="animate__animated animate__backInDown">Welcome to my corner of the Internet</p>';
         }
 
         async function getAbout(clicked_id) {
@@ -87,7 +78,7 @@
             const firstRowText2 = 'I have been an employee of Liberty Mutual Insurance Group for just about 2 years now as a Software Engineering Intern. Upon graduation I will be transitioning into full time employment with Liberty Mutual.'
             const firstRowText3 = ' Aside from my current employment, I spend a lot of my free time picking up freelance software development gigs to hone my skills and create another income stream.</p>';
             const endFirstRow = '</div></div>';
-            const secondRow = '<div class="secondRow animate__animated animate__backInRight"><p>Outside of my professional life, my hobbies include skiing, computer building/ gaming, and hanging out with my pup Franklin! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>';
+            const secondRow = '<div class="secondRow animate__animated animate__backInRight"><p>Outside of my professional life, my hobbies include skiing, computer building/ gaming, and hanging out with my pup Franklin! Like I mentioned with a hobby of mine being skiing, you can fully see my passion in the projects page of this website. There I present an Android application that I created for managing, and logging ski trips. So far I have skiied all over North American, specifically Colorado, Utah, and Alaska. It is on my bucket list to visit the Swiss Alps, but that will probably be a ways down the road. With this being one of my final assignments before I graduate, I am super excited to see what the future holds. It will be very weird when this coming fall rolls around and I am not enrolled in any course, but only working full time. I am super excited for this big life transition and cannot wait to reap the benefits of all the grinding I have done here at IU.</p>';
             const secondRowEnd = '<figure><img src="img/frankie.png" alt="Frankie Smith"><figcaption>Frankie the Frenchie</figcaption></figure></div>';
             content.innerHTML = profileImage + firstRowText1 + firstRowText2 + firstRowText3 + endFirstRow + secondRow + secondRowEnd;
         }
@@ -100,13 +91,11 @@
             resetPage();
             document.getElementById(clicked_id).classList.add("activeBtn");
             content.classList.add('projects');
-            const gnarLogFig = '<div class="firstProjectRow animate__animated animate__backInDown"><figure class=""><img src="img/gnar-log.jpg" alt="Project 1: Gnar Log"><figcaption>Project 1: Gnar Log</figcaption></figure>';
+            const saveThisString = '<a href="https://atsmith2k.github.io/" target="_blank">';
+            const gnarLogFig = '<div class="firstProjectRow animate__animated animate__backInDown"><figure class=""><a onclick="getGnarLog()"><img src="img/gnar-log.jpg" alt="Project 1: Gnar Log"></a><figcaption>Project 1: Gnar Log</figcaption></figure>';
             const ww1Fig = '<figure class=""><a href="https://atsmith2k.github.io/" target="_blank"><img src="img/ww1-500x500.png" alt="Project 2: Digital Exhibit"></a><figcaption>Project 2: Digital Exhibit</figcaption></figure>'
-            const p3fig = '<figure class=""><img src="img/place.jpg" alt="Project 3"><figcaption>Project 3</figcaption></figure></div>'
-            const gnarLogFig2 = '<div class="secondProjectRow animate__animated animate__backInUp"><figure class=""><img src="img/place.jpg" alt="Project 4"><figcaption>Project 4</figcaption></figure>';
-            const ww1Fig2 = '<figure class=""><a href="" target="_blank"><img src="img/place.jpg" alt="Project 5"></a><figcaption>Project 5</figcaption></figure>'
-            const p3fig2 = '<figure class=""><img src="img/place.jpg" alt="Project 6"><figcaption>Project 6</figcaption></figure></div>'
-            content.innerHTML = gnarLogFig + ww1Fig + p3fig + gnarLogFig2 + ww1Fig2 + p3fig2;
+            const p3fig = '<figure class=""><a onclick="getSwift()"><img src="img/swift_app.png" alt="Project 3"></a><figcaption>Project 3: iOS Application Hub</figcaption></figure></div>'
+            content.innerHTML = gnarLogFig + ww1Fig + p3fig;
         }
 
         async function getResume(clicked_id) {
@@ -117,7 +106,34 @@
             resetPage();
             document.getElementById(clicked_id).classList.add("activeBtn");
             content.classList.add('resume');
-            content.innerHTML = '<iframe class="animate__animated animate__backInRight" src="img/resume.pdf" style="width:800px; height:800px;" frameborder="0"></iframe>';
+            content.innerHTML = '<iframe class="animate__animated animate__backInRight" src="img/resume.pdf" frameborder="0"></iframe>';
+        }
+        async function getGnarLog() {
+            content.classList.add('animate__animated');
+            content.classList.add('animate__backOutUp');
+            await sleep(500);
+            resetPage();
+            resetPage();
+            content.classList.add('gnarlog');
+            content.innerHTML = '<div class="animate__animated animate__backInRight"><iframe width="560" height="315" src="https://www.youtube.com/embed/gYAuIv9w7WU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><h1>Gnar Log: Ski Application</h1></div>';
+        }
+        async function getSwift() {
+            content.classList.add('animate__animated');
+            content.classList.add('animate__backOutUp');
+            await sleep(500);
+            resetPage();
+            resetPage();
+            content.classList.add('swift');
+            content.innerHTML = '<div class="animate__animated animate__backInRight"><iframe width="560" height="315" src="https://www.youtube.com/embed/uUE9pgHqiyY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><h1>iOS Application Hub</h1></div>';
+        }
+        async function getWW1() {
+            content.classList.add('animate__animated');
+            content.classList.add('animate__backOutUp');
+            await sleep(500);
+            resetPage();
+            resetPage();
+            content.classList.add('swift');
+            content.innerHTML = '<div class="animate__animated animate__backInRight"><iframe width="1400" height="800" src="https://atsmith2k.github.io/" title="WW1 Digital Exhibit"></iframe></div>';
         }
     </script>
 </body>

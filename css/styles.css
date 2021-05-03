@@ -12,12 +12,12 @@
 /* Style the video: 100% width and height to cover the entire window */
 
 #backgroundVideo {
-    /* position: absolute;
+    position: absolute;
     right: 0;
     bottom: 0;
     min-width: 100%;
     min-height: 100%;
-    object-fit: cover; */
+    object-fit: cover;
     position: fixed;
     z-index: -1;
     /*not work if the screen ratio is below 16/9*/
@@ -25,37 +25,40 @@
     height: auto; */
 }
 
-@media (min-aspect-ratio: 16/9) {
-    #backgroundVideo {
-        width: auto;
-        height: auto;
-    }
-}
-
-@media (max-aspect-ratio: 16/9) {
-    #backgroundVideo {
-        width: auto;
-        height: 100%;
-    }
-}
-
 @media (max-width: 767px) {
-    /* #backgroundVideo {
+    #backgroundVideo {
         display: none;
     }
     body {
         background-color: #2e2e2e;
         background-size: cover;
-    } */
+        overflow: auto;
+    }
+    .container {
+        overflow: auto;
+    }
+    .content {
+        overflow: auto;
+        padding: 50px auto;
+    }
     .resume {
-        /* position: relative;
+        position: relative;
         padding-bottom: 56.25%;
         padding-top: 35px;
         height: 0;
-        overflow: hidden; */
+        overflow: hidden;
     }
     .resume iframe {
-        width: 50%;
+        width: 100%;
+        height: auto;
+    }
+    .aboutme .firstRow .firstRowInline {
+        padding: 50px;
+        padding-bottom: 0px;
+    }
+    .aboutme .secondRow {
+        padding: 50px;
+        text-align: start;
     }
 }
 
@@ -81,10 +84,6 @@
     margin-bottom: 50px;
 }
 
-.nav-bar .navRow1 {
-    /* margin-right: 10px; */
-}
-
 .nav-bar a {
     display: inline-block;
     margin: 20px;
@@ -99,6 +98,7 @@
 
 .content .stuffInPage p {
     padding: 20px;
+    font-size: 2vw;
 }
 
 .stuffInPage h1 {
@@ -116,17 +116,12 @@
     /* margin-top: 200px; */
 }
 
-.projects {
-    /* display: inline-flex; */
-    /* margin-top: 200px; */
-    overflow-y: auto;
+.resume iframe {
+    width: 800px;
+    height: 800px;
 }
 
 .projects .firstProjectRow {
-    display: inline-flex;
-}
-
-.projects .secondProjectRow {
     display: inline-flex;
 }
 
@@ -145,8 +140,6 @@
 .aboutme .firstRow {
     display: inline-flex;
 }
-
-.aboutme {}
 
 .aboutme .firstRow .firstRowInline {
     display: block;
@@ -179,6 +172,7 @@
     align-items: center;
     margin: auto;
     max-width: 1000px;
+    text-align: start;
 }
 
 .navButton {
@@ -228,10 +222,7 @@ No media query for `xs` since this is the default */
 
 @media (max-width: 576px) {
     .projects .firstProjectRow {
-        display: inline-flex;
-    }
-    .projects .secondProjectRow {
-        display: inline-flex;
+        display: inline-block;
     }
     .projects img {
         height: 10px;
@@ -255,16 +246,19 @@ No media query for `xs` since this is the default */
     .projects .firstProjectRow {
         display: inline-block;
     }
-    .projects .secondProjectRow {
-        display: inline-block;
-    }
     .projects img {
         height: 10px;
         width: 10px;
-        /* margin: 0px 50px 0px 50px; */
         border-radius: 10%;
     }
+    .aboutme {
+        padding: 25px auto;
+    }
     .aboutme .firstRow {
+        display: inline-block;
+        padding: 25px auto;
+    }
+    .aboutme .secondRow {
         display: inline-block;
     }
 }
@@ -273,9 +267,8 @@ No media query for `xs` since this is the default */
 /* Large devices (desktops, 992px and up) */
 
 @media (max-width: 992px) {
-    .projects {
+    .projects .firstProjectRow {
         display: inline-block;
-        margin-top: 0px;
     }
     .projects img {
         height: 100px;
@@ -292,9 +285,8 @@ No media query for `xs` since this is the default */
 /* Extra large devices (large desktops, 1200px and up) */
 
 @media (max-width: 1200px) {
-    .projects {
+    .projects .firstProjectRow {
         display: inline-block;
-        margin-top: 0px;
     }
     .projects img {
         height: 200px;
